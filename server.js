@@ -46,6 +46,15 @@ app.get("/news" , function(req  ,res){
         INF: info
     });
     
+    
+})
+
+app.get("/about" , function(req  ,res){
+    res.render("about.ejs", {
+        INF: info
+    });
+    
+    
 })
 
 
