@@ -1,0 +1,88 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ 
+<body> 
+    <header>
+        <%- include("header.ejs") %>
+    </header>
+
+
+    <style>
+        section{
+           width: 100%;
+           padding: 12% 2% ;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-direction: column;
+        }
+        fieldset{
+           width: 50%;
+           height: 30vh;
+           /* padding: 2% 3%; */
+        }
+        
+        .posted{
+           display: flex;
+           flex-direction: column;
+           
+           width: 100%;
+           padding: 10px;
+        
+         
+          
+        }
+        article{
+            word-wrap: break-word;
+            width: 20rem;
+           
+        }
+
+       @media (max-width:350px) {
+        .posted{
+           display: flex;
+           flex-direction: column;
+           
+           width: 100%;
+           padding: 10px;
+        
+          
+        }
+        article{
+            word-wrap: break-word;
+            width: 200px;
+           
+        }
+       }
+       </style>
+      
+ <section>   
+    <% for(let i = 0; i < INF.length; i++) { %>
+    <fieldset>
+        <legend>post</legend>
+       
+            <div class="posted">
+                <h1><%= INF[i].title %></h1> 
+                <br>
+                <article> <%= INF[i].discription %></article>
+            </div>
+         
+    </fieldset>
+     
+    
+    <% } %>
+</section>    
+ 
+</body>
+
+
+ 
+</html>
