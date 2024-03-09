@@ -2,8 +2,8 @@
 
 
 class Publication {
-    constructor(title, discription) {
-        this.title = title;
+    constructor(discription) {
+      
          
         this.discription = discription;
     }

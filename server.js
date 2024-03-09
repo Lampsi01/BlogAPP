@@ -20,19 +20,21 @@ app.use(bodyParser.json());
 let info = []; 
    
     
- 
+app.use((req, res, next) => {
+    console.log('Request from:', req.ip);
+    console.log('User-Agent:', req.headers['user-agent']);
+    next();
+});
  
  
  
  
 
 app.post("/news", function(req, res) {
-    let pub = new Publication(req.body.title, req.body.description);
+    let pub = new Publication(req.body.description);
     info.push(pub);
     // console.log(info.description); 
-    res.render("news.ejs", {
-        INF: info
-    });
+    res.redirect('/news');
 });
 
 
@@ -50,9 +52,8 @@ app.get("/news" , function(req  ,res){
 })
 
 app.get("/about" , function(req  ,res){
-    res.render("about.ejs", {
-        INF: info
-    });
+    res.render("about.ejs", {}); 
+    
     
     
 })
